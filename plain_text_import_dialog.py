@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 from pathlib import Path
-from typing import Dict, Final, List, Tuple, Union
+from typing import Dict, List, Tuple, Union
+
+try:
+    from typing import Final
+except ImportError:
+    class _Final:
+        def __getitem__(self, item):
+            return item
+
+
+    Final = _Final()
 
 from PyQt5.QtCore import QAbstractTableModel, QCoreApplication, QModelIndex, QVariant, Qt
 from PyQt5.QtWidgets import QAbstractItemView, QApplication, QCheckBox, QComboBox, QDialog, QDialogButtonBox, \
